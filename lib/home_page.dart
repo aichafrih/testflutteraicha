@@ -54,6 +54,15 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Page'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(
+                  context); // Naviguer vers la page précédente (intro page)
+            },
+          ),
+        ],
       ),
       drawer: MyDrawer(),
       floatingActionButton: FloatingActionButton(
@@ -64,8 +73,7 @@ class _HomePageState extends State<HomePage> {
         child: Icon(Icons.cloud),
       ),
       body: Column(
-        mainAxisAlignment:
-            MainAxisAlignment.start, // Alignez les enfants en haut
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(height: 24),
@@ -107,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.orange),
             SizedBox(height: 8),
             Image.asset(
-              'assets/images/${selectedCountry!["images"]}', // Assurez-vous d'avoir vos images dans le bon dossier
+              'assets/images/${selectedCountry!["images"]}',
               height: 100,
             ),
           ],
